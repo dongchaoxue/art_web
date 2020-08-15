@@ -1,0 +1,43 @@
+logging:
+  level:
+    root: INFO
+  config: classpath:logback.xml
+server:
+  error:
+    include-stacktrace: never
+    include-exception: true
+  port: 80
+  tomcat:
+    accept-count: 300
+    accesslog:
+      enabled: true
+  servlet:
+    context-path: /decoration
+
+spring:
+  application:
+    name: decoration
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://123.57.41.230:3306/decoration?characterEncoding=utf-8
+    username: root
+    password: puyu1216
+  http:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+    jackson:
+      date-format: yyyy-MM-dd HH:mm:ss
+      time-zone: GMT+8
+
+mybatis:
+  type-aliases-package: com.decoration.mapper
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  mapper-locations: classpath:mapper/*.xml
+
