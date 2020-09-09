@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <!-- 数据库驱动包路径 -->
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://123.57.41.230:3306/decoration?characterEncoding=UTF-8"
+                    userId="root"
+                    password="puyu1216">
+    </jdbcConnection>
+
+    <!-- 类型转换器 -->
+    <javaTypeResolver>
+      <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
+
+    <!-- 生成POJO对象，并将类放到实体包下 -->
+    <javaModelGenerator targetPackage="com.decoration.domain"
+                        targetProject="src/main/java"></javaModelGenerator>
+    <!-- 生成mapper xml文件，并放到resources下的mapper文件夹下 -->
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"></sqlMapGenerator>
+    <!-- 生成mapper xml对应dao接口，放到mapper包下-->
+    <javaClientGenerator targetPackage="com.decoration.mapper" targetProject="src/main/java"
+                         type="XMLMAPPER"></javaClientGenerator>
+
+    <!-- table标签可以有多个，至少一个，tableName指定表名，可以使用_和%通配符 -->
+    <table tableName="t_user" domainObjectName="UserTest" enableSelectByExample="false"
+           enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false">
+    </table>
+  </context>
+</generatorConfiguration>
